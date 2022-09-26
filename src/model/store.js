@@ -3,16 +3,16 @@ const {model} = require("mongoose");
 const Schema = mongoose.Schema
 
 const StoreSchema = new Schema({
-    UserId : {
+    userId : {
         type : Schema.Types.ObjectId,
         ref : ' user',
         require : true
     },
-    Name : {
+    name : {
         type : String,
         require: true
     },
-    Image : [
+    image : [
         {
             public_id : {
                 type : String,
@@ -25,25 +25,25 @@ const StoreSchema = new Schema({
         }
     ],
 
-    ProductsId : {
+    productsId : [{
         type: Schema.Types.ObjectId,
-        ref :'product'
-    },
-    CategoryId : {
+        ref :'Product'
+    }],
+    categoryId :[ {
         type: Schema.Types.ObjectId,
-        ref : 'category'
-    },
-    Date : {
+        ref : 'Category'
+    }],
+    date : {
         type : Date,
         default: Date.now
     },
-    Rating : {
+    rating : {
         type : Number,
         default : 0
     }
 
 })
-module.exports = mongoose.model('store',StoreSchema)
+module.exports = mongoose.model('Store',StoreSchema)
 
 
 
