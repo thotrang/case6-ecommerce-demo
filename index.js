@@ -1,12 +1,22 @@
 const express = require("express");
 const app = express();
-const http = require("http");
-const cors = require("cors");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 
-app.use(cors());
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.DB_URL);
+        console.log('MongoDB connected');
+    } catch (error) {
+        console.log(error.message);
+        process.exit(1);
+    }
+};
 
-const server = http.createServer(app);
+connectDB();
 
-server.listen('3001', () => {
-    console.log('http://localhost:3001')
-})
+const PORT = 3001;
+
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`);
+});
