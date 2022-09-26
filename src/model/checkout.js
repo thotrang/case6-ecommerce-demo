@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const {Schema} = require("mongoose");
 
-const checkoutSchema = new mongoose.Schema({
+const CheckoutSchema = new mongoose.Schema({
     cartId:{
         type: Schema.Types.ObjectId,
         ref: 'Checkout',
@@ -15,4 +15,4 @@ const checkoutSchema = new mongoose.Schema({
     shipingMethod: String
 })
 
-module.exports = mongoose.model('Checkout', checkoutSchema)
+module.exports = mongoose.model('Checkout', CheckoutSchema)
