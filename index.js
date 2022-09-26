@@ -1,22 +1,27 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config();
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.DB_URL);
-        console.log('MongoDB connected');
-    } catch (error) {
-        console.log(error.message);
-        process.exit(1);
-    }
-};
 
-connectDB();
+const PORT = process.env.PORT
+const URL = process.env.MONGO0DB_URL
 
-const PORT = 3001;
+app.use(cors());
+app.use(bodyParser.json());
 
+const connectDatabase = () => {
+    mongoose.connect(URL)
+    .then((data)=>{
+        console.log('db connect success');
+    }).catch((err)=>{
+        console.log(err);
+    })
+}
+connectDatabase();
 app.listen(PORT, () => {
-    console.log(`server running on port ${PORT}`);
-});
+    console.log(`http://localhost:${PORT}`)
+})
+
