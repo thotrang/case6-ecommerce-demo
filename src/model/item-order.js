@@ -8,10 +8,12 @@ const ItemOrderSchema = new Schema({
         require:true
     },
     amount:{
-        type: Number
+        type: Number,
+        require: true
     },
     price:{
-        type: Number
+        type: Number,
+        require: true
     },
     status:{
         type: Boolean,
