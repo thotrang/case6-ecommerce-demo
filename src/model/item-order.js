@@ -5,15 +5,15 @@ const ItemOrderSchema = new Schema({
     productId : {
         type:Schema.Types.ObjectId,
         ref:'product',
-        require:[true,'Must have media id from product to']
+        require:true
     },
     amount:{
         type: Number,
-        require:[true,'quantity required']
+        require: true
     },
     price:{
         type: Number,
-        require:[true,'required to enter the price']
+        require: true
     },
     status:{
         type: Boolean,
