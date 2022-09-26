@@ -47,7 +47,7 @@ const UserSchema = new mongoose.Schema({
     },
     cardId: {
         type:Schema.Types.ObjectId,
-        ref:'Card',
+        ref:'Cart',
         require: true
     }
 
