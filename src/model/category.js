@@ -14,3 +14,4 @@ const CategorySchema = mongoose.Schema({
         ref : "products"
     }
 })
+module.exports = mongoose.model("category",CategorySchema);
