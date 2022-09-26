@@ -1,5 +1,5 @@
 const mongoose = require ("mongoose");
-const catgorySchema = mongoose.Schema({
+const CategorySchema = mongoose.Schema({
     name:{
         type : String,
         required : true,
@@ -10,7 +10,7 @@ const catgorySchema = mongoose.Schema({
         required : true
     },
     product :{
-        type : Schema.Type.ObjectId,
+        type : Schema.Types.ObjectId,
         ref : "products"
     }
 })
