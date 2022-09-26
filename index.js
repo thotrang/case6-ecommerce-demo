@@ -1,16 +1,19 @@
 const express = require("express");
 const app = express();
-const http = require("http");
 const cors = require("cors");
-const server = http.createServer(app);
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv').config();
+
+
+const PORT = process.env.PORT
+const URL = process.env.MONGO0DB_URL
 
 app.use(cors());
 app.use(bodyParser.json());
 
 const connectDatabase = () => {
-    mongoose.connect('mongodb+srv://admin:admin123@cluster0.qkyelvk.mongodb.net/case6-ecommerce-demo')
+    mongoose.connect(URL)
     .then((data)=>{
         console.log('db connect success');
     }).catch((err)=>{
@@ -18,6 +21,6 @@ const connectDatabase = () => {
     })
 }
 connectDatabase();
-server.listen('3001', () => {
-    console.log('http://localhost:3001')
+app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}`)
 })
