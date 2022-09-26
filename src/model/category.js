@@ -11,7 +11,7 @@ const CategorySchema = mongoose.Schema({
     },
     product :{
         type : Schema.Types.ObjectId,
-        ref : "products"
+        ref : "Product"
     }
 })
-module.exports = mongoose.model("category",CategorySchema);
+module.exports = mongoose.model("Category",CategorySchema);
